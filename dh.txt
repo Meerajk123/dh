@@ -1,0 +1,50 @@
+#include <stdio.h>
+ 
+
+int compute(int a, int m, int n)
+{
+    int r;
+    int y = 1;
+ 
+    while (m > 0)
+    {
+        r = m % 2;
+ 
+       
+        if (r == 1) {
+            y = (y*a) % n;
+        }
+        a = a*a % n;
+        m = m / 2;
+    }
+ 
+    return y;
+}
+ 
+
+int main()
+{
+    int q = 71;       
+    int al = 7;        
+ 
+    int a, b;    
+    int A, B;    
+ 
+   
+    a = 5;        
+ 
+    
+    A = compute(al, a, q);
+ 
+    
+    b = 12;        
+ 
+    
+    B = compute(al, b, q);
+    int keyA = compute(B, a, q);
+    int keyB = compute(A, b, q);
+    printf("Pubic key = %d%d",A,B);
+    printf("Alice's secret key is %d\nBob's secret key is %d", keyA, keyB);
+ 
+    return 0;
+}
